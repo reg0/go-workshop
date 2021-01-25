@@ -1,11 +1,20 @@
 package main
 
 import (
+	"encoding/json"
 	"net/http"
 )
 
+type HelloMessage struct {
+
+}
+
 func sayHello(rw http.ResponseWriter, req *http.Request) {
-	_, _ = rw.Write([]byte("hello"))
+	res := &HelloMessage{}
+
+	bytes, _ := json.Marshal(res)
+
+	_, _ = rw.Write(bytes)
 }
 
 func main() {
