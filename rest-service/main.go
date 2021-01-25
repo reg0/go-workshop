@@ -6,11 +6,13 @@ import (
 )
 
 type HelloMessage struct {
-
+	Message string
 }
 
 func sayHello(rw http.ResponseWriter, req *http.Request) {
-	res := &HelloMessage{}
+	res := &HelloMessage{
+		Message: "Hello",
+	}
 
 	bytes, _ := json.Marshal(res)
 
