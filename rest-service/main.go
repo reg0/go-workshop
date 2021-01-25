@@ -6,7 +6,7 @@ import (
 )
 
 type HelloMessage struct {
-	Message string
+	Message string `json:"msg"`
 }
 
 func sayHello(rw http.ResponseWriter, req *http.Request) {
