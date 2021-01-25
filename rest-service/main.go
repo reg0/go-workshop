@@ -10,7 +10,7 @@ func sayHello(rw http.ResponseWriter, req *http.Request) {
 
 func main() {
 	mux := http.NewServeMux()
-	mux.Handle("/hello", http.HandlerFunc(sayHello))
+	mux.HandleFunc("/hello", sayHello)
 
 	err := http.ListenAndServe(":8080", mux)
 
