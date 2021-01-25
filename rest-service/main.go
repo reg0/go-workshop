@@ -14,6 +14,8 @@ func sayHello(rw http.ResponseWriter, req *http.Request) {
 
 	bytes, _ := json.Marshal(res)
 
+	rw.Header()["content-type"] = []string{"application/json"}
+	rw.WriteHeader(http.StatusOK)
 	_, _ = rw.Write(bytes)
 }
 
