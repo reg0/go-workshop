@@ -9,7 +9,10 @@ func sayHello(rw http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	err := http.ListenAndServe(":8080", http.HandlerFunc(sayHello))
+	mux := http.NewServeMux()
+	mux.Handle("/hello", http.HandlerFunc(sayHello))
+
+	err := http.ListenAndServe(":8080", mux)
 
 	if err != nil {
 		panic(err)
